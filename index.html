@@ -57,6 +57,14 @@
   .chip .ar,.chip .en{display:inline;text-align:inherit;color:inherit;font-size:inherit}
   button.go{text-align:center} button.go .en{text-align:center}
   .opt .en{font-size:.85em}
+  .stickers{display:flex;gap:18px;justify-content:center;margin:0 0 30px}
+  .stk{width:132px;height:132px;display:block;filter:drop-shadow(0 4px 8px rgba(0,0,0,.18))}
+  .stk.s1{transform:rotate(-4deg)} .stk.s2{transform:rotate(4deg)}
+  a.site-btn{display:block;text-align:center;text-decoration:none;color:var(--fg);border:2px solid var(--fg);
+    border-radius:12px;padding:14px 16px;font-size:16px;font-weight:600;transition:.15s}
+  a.site-btn:hover{background:var(--soft2)}
+  a.site-btn .en{color:var(--muted);font-size:.8em;text-align:center}
+  a.site-btn .ar{text-align:center}
   .hp{position:absolute;top:0;left:0;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none}
   html,body{overflow-x:hidden}
   .done{text-align:center;padding:60px 0;display:none}
@@ -82,6 +90,32 @@
     <h1><span class="ar" lang="ar" dir="rtl">كن من أوائل من يجرّبون الطاقة المتنقلة</span><span class="en" lang="en" dir="ltr">Be among the first to try portable power</span></h1>
     <p class="lead"><span class="ar" lang="ar" dir="rtl">أنظمة بطاريات متنقلة تعمل بالطاقة الشمسية للإيجار في الإمارات. سجّل بياناتك وسنتواصل معك.</span><span class="en" lang="en" dir="ltr">Solar-charged portable power systems for rent across the UAE. Leave your details and we'll get in touch.</span></p>
 
+<div class="stickers"><svg class="stk s1" viewBox="0 0 140 140" role="img" aria-label="Generator: no / مولد: لا">
+<rect x="4" y="4" width="132" height="132" rx="26" fill="#fff" stroke="#000" stroke-width="3"/>
+<path d="M18 72 L10 58 L28 58" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="18" y="64" width="70" height="44" rx="8" fill="#fff" stroke="#000" stroke-width="4"/>
+<path d="M26 74H50M26 82H50M26 90H50" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+<rect x="58" y="72" width="22" height="12" rx="3" fill="#000"/>
+<rect x="70" y="54" width="8" height="10" fill="#000"/>
+<circle cx="74" cy="45" r="7" fill="#9ca3af"/><circle cx="85" cy="33" r="9" fill="#b6bcc5"/><circle cx="72" cy="23" r="7" fill="#d1d5db"/>
+<circle cx="30" cy="112" r="6" fill="#000"/><circle cx="76" cy="112" r="6" fill="#000"/>
+<circle cx="112" cy="104" r="17" fill="#dc2626" stroke="#fff" stroke-width="3"/>
+<path d="M105 97L119 111M119 97L105 111" stroke="#fff" stroke-width="4.5" stroke-linecap="round"/>
+</svg><svg class="stk s2" viewBox="0 0 140 140" role="img" aria-label="Battery, inverter and trees: yes / بطارية ومحول وأشجار: نعم">
+<rect x="4" y="4" width="132" height="132" rx="26" fill="#fff" stroke="#000" stroke-width="3"/>
+<circle cx="99" cy="38" r="13" fill="#16a34a"/><circle cx="113" cy="45" r="10" fill="#22c55e"/><circle cx="86" cy="46" r="9" fill="#22c55e"/>
+<rect x="96.5" y="48" width="5" height="16" fill="#000"/>
+<rect x="14" y="58" width="38" height="50" rx="6" fill="#fff" stroke="#000" stroke-width="4"/>
+<rect x="26" y="51" width="14" height="7" fill="#000"/>
+<polygon points="36,64 26,86 33,86 30,100 42,77 35,77" fill="#000"/>
+<path d="M52 90H58" stroke="#000" stroke-width="4"/>
+<rect x="58" y="70" width="34" height="38" rx="5" fill="#fff" stroke="#000" stroke-width="4"/>
+<path d="M64 80H86M64 88H86" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+<circle cx="69" cy="99" r="3" fill="#000"/><circle cx="81" cy="99" r="3" fill="#000"/>
+<path d="M12 116q2-8 4 0q2-8 4 0q2-8 4 0M30 116q2-8 4 0q2-8 4 0" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="112" cy="104" r="17" fill="#16a34a" stroke="#fff" stroke-width="3"/>
+<path d="M103 104L110 111L122 97" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div>
     <form id="f" novalidate>
       <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" />
       <label class="f"><span><span class="ar" lang="ar" dir="rtl">الاسم</span><span class="en" lang="en" dir="ltr">Name</span></span>
@@ -103,6 +137,7 @@
 
       <div class="err" id="err" role="alert"></div>
       <button class="go" id="go" type="submit"><span class="ar" lang="ar" dir="rtl">إرسال</span><span class="en" lang="en" dir="ltr">Submit</span></button>
+      <a class="site-btn" href="https://sustecamp.ai/" target="_blank" rel="noopener"><span class="ar" lang="ar" dir="rtl">موقعنا لتعرف أكثر</span><span class="en" lang="en" dir="ltr">Visit our website to learn more</span></a>
     </form>
   </main>
 
