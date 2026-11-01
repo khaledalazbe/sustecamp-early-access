@@ -87,7 +87,7 @@
   </header>
 
   <main id="formView">
-    <h1><span class="ar" lang="ar" dir="rtl">كن من أوائل من يجرّبون الطاقة المتنقلة</span><span class="en" lang="en" dir="ltr">Be among the first to try portable power</span></h1>
+    <h1><span class="ar" lang="ar" dir="rtl">كن من أوائل من يجرّبون الطاقة المتنقلة بالإيجار</span><span class="en" lang="en" dir="ltr">Be among the first to try portable power for rent</span></h1>
     <p class="lead"><span class="ar" lang="ar" dir="rtl">أنظمة بطاريات متنقلة تعمل بالطاقة الشمسية للإيجار في الإمارات. سجّل بياناتك وسنتواصل معك.</span><span class="en" lang="en" dir="ltr">Solar-charged portable power systems for rent across the UAE. Leave your details and we'll get in touch.</span></p>
 
 <div class="stickers"><svg class="stk s1" viewBox="0 0 140 140" role="img" aria-label="Generator: no / مولد: لا">
@@ -183,6 +183,17 @@
       .then(function(){ document.getElementById("formView").style.display="none"; document.getElementById("done").style.display="block"; window.scrollTo(0,0); })
       .catch(function(){ err.textContent = M.fail; go.disabled=false; go.innerHTML = M.btn; });
   });
+})();
+</script>
+<script>
+(function(){
+  try{
+    if(sessionStorage.getItem("sc_counted")) return;
+    sessionStorage.setItem("sc_counted","1");
+    var base="https://abacus.jasoncameron.dev/hit/sustecamp-early-access/";
+    fetch(base+"opens",{keepalive:true}).catch(function(){});
+    if(/[?&]src=qr(&|$)/.test(location.search)) fetch(base+"scans",{keepalive:true}).catch(function(){});
+  }catch(e){}
 })();
 </script>
 </body>
