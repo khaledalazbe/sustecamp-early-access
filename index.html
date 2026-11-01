@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#ffffff" />
+<title>sustecamp.ai — كن من أوائل المجرّبين</title>
+<meta name="description" content="أنظمة طاقة متنقلة للإيجار تعمل بالطاقة الشمسية في الإمارات. سجّل اهتمامك وكن من أول من يجرّبها." />
+<link rel="icon" type="image/svg+xml" href="logo-mark.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#fff; --fg:#000; --muted:#6b7280; --line:#d4d4d4;
+    --soft:#fafafa; --soft2:#f0f0f0; --err:#dc2626;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:var(--bg); color:var(--fg);
+    font-family:"Noto Kufi Arabic",Tajawal,system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased; min-height:100vh;
+  }
+  html[lang="en"] body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  .wrap{max-width:520px;margin:0 auto;padding:28px 20px 56px}
+  header{display:flex;align-items:center;justify-content:space-between;margin-bottom:36px}
+  header img{height:30px;width:auto;display:block}
+  .lang{background:none;border:1px solid var(--line);color:var(--fg);border-radius:999px;
+    padding:6px 14px;font:inherit;font-size:13px;cursor:pointer}
+  .lang:hover{background:var(--soft)}
+  h1{font-size:28px;line-height:1.35;font-weight:600;margin:0 0 12px;letter-spacing:-.01em}
+  p.lead{color:var(--muted);font-size:15px;line-height:1.8;margin:0 0 30px}
+  form{display:grid;gap:20px}
+  label.f{display:grid;gap:8px;font-size:14px;font-weight:500}
+  input[type=text],input[type=tel],input[type=email]{
+    width:100%;background:var(--soft);border:1px solid var(--line);color:var(--fg);
+    border-radius:12px;padding:14px 16px;font:inherit;font-size:16px;outline:none;transition:.15s}
+  input:focus{border-color:var(--fg);background:var(--soft2)}
+  input[type=tel],input[type=email]{direction:ltr;text-align:start}
+  html[dir=rtl] input[type=tel],html[dir=rtl] input[type=email]{text-align:right}
+  fieldset{border:0;padding:0;margin:0;display:grid;gap:10px}
+  legend{font-size:14px;font-weight:500;line-height:1.8;margin-bottom:10px;padding:0}
+  .opt{position:relative}
+  .opt input{position:absolute;opacity:0;inset:0;cursor:pointer}
+  .opt span{display:block;border:1px solid var(--line);background:var(--soft);border-radius:12px;
+    padding:14px 16px;font-size:15px;transition:.15s}
+  .opt input:checked + span{background:var(--fg);color:var(--bg);border-color:var(--fg);font-weight:600}
+  .opt input:focus-visible + span{outline:2px solid var(--fg);outline-offset:2px}
+  button.go{margin-top:6px;background:var(--fg);color:var(--bg);border:0;border-radius:12px;
+    padding:16px;font:inherit;font-size:16px;font-weight:600;cursor:pointer;transition:.15s}
+  button.go:hover{opacity:.9} button.go:disabled{opacity:.5;cursor:wait}
+  .err{color:var(--err);font-size:13px;min-height:1em}
+  .hp{position:absolute;top:0;left:0;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none}
+  html,body{overflow-x:hidden}
+  .done{text-align:center;padding:60px 0;display:none}
+  .done .tick{width:64px;height:64px;border-radius:50%;border:2px solid var(--fg);display:grid;place-items:center;margin:0 auto 20px;font-size:30px}
+  .done h2{font-size:24px;margin:0 0 10px;font-weight:600}
+  .done p{color:var(--muted);line-height:1.8;margin:0}
+  footer{margin-top:40px;color:var(--muted);font-size:12px;text-align:center}
+  footer a{color:var(--muted)}
+  .contact{display:grid;gap:10px;margin-bottom:18px}
+  footer a.chip{display:block;border:1px solid var(--line);border-radius:12px;padding:12px 16px;color:var(--fg);
+    font-size:14px;text-decoration:none;transition:.15s}
+  footer a.chip:hover{background:var(--soft2)}
+  .site{margin-top:4px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="logo.svg" alt="sustecamp.ai" />
+    <button class="lang" id="lang" type="button">English</button>
+  </header>
+
+  <main id="formView">
+    <h1 data-ar="كن من أوائل من يجرّبون الطاقة المتنقلة" data-en="Be among the first to try portable power"></h1>
+    <p class="lead" data-ar="أنظمة بطاريات متنقلة تعمل بالطاقة الشمسية للإيجار في الإمارات. سجّل بياناتك وسنتواصل معك." data-en="Solar-charged portable power systems for rent across the UAE. Leave your details and we'll get in touch."></p>
+
+    <form id="f" novalidate>
+      <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" />
+      <label class="f"><span data-ar="الاسم" data-en="Name"></span>
+        <input type="text" name="name" autocomplete="name" required />
+      </label>
+      <label class="f"><span data-ar="رقم الهاتف" data-en="Phone number"></span>
+        <input type="tel" name="phone" autocomplete="tel" inputmode="tel" required />
+      </label>
+      <label class="f"><span data-ar="البريد الإلكتروني" data-en="Email"></span>
+        <input type="email" name="email" autocomplete="email" required />
+      </label>
+
+      <fieldset>
+        <legend data-ar="هل تهتم بأنظمة طاقة متنقلة للإيجار، وتكون من أوائل من يجرّبونها مجاناً أو بخصم 50%؟" data-en="Are you interested in portable power systems for rent, and being among the first to try them free or at 50% off?"></legend>
+        <label class="opt"><input type="radio" name="interest" value="Yes" /><span data-ar="نعم، مهتم" data-en="Yes, I'm interested"></span></label>
+        <label class="opt"><input type="radio" name="interest" value="Maybe" /><span data-ar="ربما، أحتاج تفاصيل أكثر" data-en="Maybe, I need more details"></span></label>
+        <label class="opt"><input type="radio" name="interest" value="No" /><span data-ar="لا، شكراً" data-en="No, thanks"></span></label>
+      </fieldset>
+
+      <div class="err" id="err" role="alert"></div>
+      <button class="go" id="go" type="submit" data-ar="إرسال" data-en="Submit"></button>
+    </form>
+  </main>
+
+  <section class="done" id="done">
+    <div class="tick">✓</div>
+    <h2 data-ar="شكراً لك!" data-en="Thank you!"></h2>
+    <p data-ar="وصلنا طلبك وسنتواصل معك قريباً." data-en="We've received your details and will be in touch soon."></p>
+  </section>
+
+  <footer>
+    <div class="contact">
+      <a class="chip" href="https://instagram.com/sustecamp.ai" target="_blank" rel="noopener">Instagram · @sustecamp.ai</a>
+      <a class="chip" href="tel:+971505749015"><span data-ar="اتصال" data-en="Call"></span> · <bdi dir="ltr">050 574 9015</bdi></a>
+      <a class="chip" href="https://wa.me/971505749015" target="_blank" rel="noopener">WhatsApp · <bdi dir="ltr">050 574 9015</bdi></a>
+    </div>
+    <div class="site"><a href="https://sustecamp.ai/en/">sustecamp.ai</a></div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var ENDPOINT = "https://formsubmit.co/ajax/khaledalazbe@gmail.com";
+  var lang = "ar";
+  var msgs = {
+    ar:{req:"الرجاء تعبئة الاسم والهاتف والإيميل واختيار إجابة.",mail:"الإيميل غير صحيح.",fail:"تعذّر الإرسال، حاول مرة ثانية.",btn:"إرسال",wait:"جاري الإرسال..."},
+    en:{req:"Please fill in name, phone, email and choose an answer.",mail:"Email looks invalid.",fail:"Couldn't send, please try again.",btn:"Submit",wait:"Sending..."}
+  };
+  function apply(){
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang==="ar" ? "rtl" : "ltr";
+    document.querySelectorAll("[data-ar]").forEach(function(el){ el.textContent = el.getAttribute("data-"+lang); });
+    document.getElementById("lang").textContent = lang==="ar" ? "English" : "العربية";
+  }
+  document.getElementById("lang").addEventListener("click", function(){ lang = lang==="ar" ? "en" : "ar"; apply(); });
+  apply();
+
+  var form = document.getElementById("f"), err = document.getElementById("err"), go = document.getElementById("go");
+  form.addEventListener("submit", function(e){
+    e.preventDefault(); err.textContent = "";
+    var d = new FormData(form);
+    if(d.get("_honey")) return;
+    var name=(d.get("name")||"").trim(), phone=(d.get("phone")||"").trim(), email=(d.get("email")||"").trim(), interest=d.get("interest");
+    if(!name||!phone||!email||!interest){ err.textContent = msgs[lang].req; return; }
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ err.textContent = msgs[lang].mail; return; }
+    go.disabled = true; go.textContent = msgs[lang].wait;
+    var body = {
+      name:name, phone:phone, email:email, interest:interest, language:lang,
+      _subject:"sustecamp.ai early access — "+name, _template:"table", _captcha:"false"
+    };
+    fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(body)})
+      .then(function(r){ if(!r.ok) throw new Error("http "+r.status); return r.json(); })
+      .then(function(){ document.getElementById("formView").style.display="none"; document.getElementById("done").style.display="block"; window.scrollTo(0,0); })
+      .catch(function(){ err.textContent = msgs[lang].fail; go.disabled=false; go.textContent=msgs[lang].btn; });
+  });
+})();
+</script>
+</body>
+</html>
