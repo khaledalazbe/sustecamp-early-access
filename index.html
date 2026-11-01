@@ -85,13 +85,13 @@
     <form id="f" novalidate>
       <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" />
       <label class="f"><span><span class="ar" lang="ar" dir="rtl">الاسم</span><span class="en" lang="en" dir="ltr">Name</span></span>
-        <input type="text" name="name" autocomplete="name" required />
+        <input type="text" name="name" autocomplete="name" />
       </label>
       <label class="f"><span><span class="ar" lang="ar" dir="rtl">رقم الهاتف</span><span class="en" lang="en" dir="ltr">Phone number</span></span>
-        <input type="tel" name="phone" autocomplete="tel" inputmode="tel" required />
+        <input type="tel" name="phone" autocomplete="tel" inputmode="tel" />
       </label>
       <label class="f"><span><span class="ar" lang="ar" dir="rtl">البريد الإلكتروني</span><span class="en" lang="en" dir="ltr">Email</span></span>
-        <input type="email" name="email" autocomplete="email" required />
+        <input type="email" name="email" autocomplete="email" />
       </label>
 
       <fieldset>
@@ -126,7 +126,7 @@
 (function(){
   var ENDPOINT = "https://formsubmit.co/ajax/khaledalazbe@gmail.com";
   var M = {
-    req:"الرجاء تعبئة الاسم والهاتف والإيميل واختيار إجابة. / Please fill in name, phone, email and choose an answer.",
+    req:"الرجاء تعبئة رقم الهاتف أو الإيميل على الأقل. / Please enter at least a phone number or an email.",
     mail:"الإيميل غير صحيح. / Email looks invalid.",
     fail:"تعذّر الإرسال، حاول مرة ثانية. / Couldn't send, please try again.",
     btn:'<span class="ar" lang="ar" dir="rtl">إرسال</span><span class="en" lang="en" dir="ltr">Submit</span>',
@@ -138,11 +138,11 @@
     var d = new FormData(form);
     if(d.get("_honey")) return;
     var name=(d.get("name")||"").trim(), phone=(d.get("phone")||"").trim(), email=(d.get("email")||"").trim(), interest=d.get("interest");
-    if(!name||!phone||!email||!interest){ err.textContent = M.req; return; }
-    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ err.textContent = M.mail; return; }
+    if(!phone&&!email){ err.textContent = M.req; return; }
+    if(email&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ err.textContent = M.mail; return; }
     go.disabled = true; go.innerHTML = M.wait;
-    var body = { name:name, phone:phone, email:email, interest:interest,
-      _subject:"sustecamp.ai early access — "+name, _template:"table", _captcha:"false" };
+    var body = { name:name||"-", phone:phone||"-", email:email||"-", interest:interest||"-",
+      _subject:"sustecamp.ai early access — "+(name||phone||email), _template:"table", _captcha:"false" };
     fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(body)})
       .then(function(r){ if(!r.ok) throw new Error("http "+r.status); return r.json(); })
       .then(function(){ document.getElementById("formView").style.display="none"; document.getElementById("done").style.display="block"; window.scrollTo(0,0); })
