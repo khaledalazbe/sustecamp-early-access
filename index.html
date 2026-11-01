@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#ffffff" />
-<title>sustecamp.ai — كن من أوائل المجرّبين</title>
+<title>sustecamp.ai — كن من أوائل المجرّبين | Be among the first</title>
 <meta name="description" content="أنظمة طاقة متنقلة للإيجار تعمل بالطاقة الشمسية في الإمارات. سجّل اهتمامك وكن من أول من يجرّبها." />
 <link rel="icon" type="image/svg+xml" href="logo-mark.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,11 +24,9 @@
   }
   html[lang="en"] body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
   .wrap{max-width:520px;margin:0 auto;padding:28px 20px 56px}
-  header{display:flex;align-items:center;justify-content:space-between;margin-bottom:36px}
+  header{display:flex;align-items:center;justify-content:flex-start;margin-bottom:36px}
+  a.brand{display:inline-block;line-height:0}
   header img{height:30px;width:auto;display:block}
-  .lang{background:none;border:1px solid var(--line);color:var(--fg);border-radius:999px;
-    padding:6px 14px;font:inherit;font-size:13px;cursor:pointer}
-  .lang:hover{background:var(--soft)}
   h1{font-size:28px;line-height:1.35;font-weight:600;margin:0 0 12px;letter-spacing:-.01em}
   p.lead{color:var(--muted);font-size:15px;line-height:1.8;margin:0 0 30px}
   form{display:grid;gap:20px}
@@ -43,7 +41,7 @@
   legend{font-size:14px;font-weight:500;line-height:1.8;margin-bottom:10px;padding:0}
   .opt{position:relative}
   .opt input{position:absolute;opacity:0;inset:0;cursor:pointer}
-  .opt span{display:block;border:1px solid var(--line);background:var(--soft);border-radius:12px;
+  .opt > span{display:block;border:1px solid var(--line);background:var(--soft);border-radius:12px;
     padding:14px 16px;font-size:15px;transition:.15s}
   .opt input:checked + span{background:var(--fg);color:var(--bg);border-color:var(--fg);font-weight:600}
   .opt input:focus-visible + span{outline:2px solid var(--fg);outline-offset:2px}
@@ -51,6 +49,14 @@
     padding:16px;font:inherit;font-size:16px;font-weight:600;cursor:pointer;transition:.15s}
   button.go:hover{opacity:.9} button.go:disabled{opacity:.5;cursor:wait}
   .err{color:var(--err);font-size:13px;min-height:1em}
+  .ar{display:block}
+  .en{display:block;font-family:Inter,system-ui,sans-serif;font-weight:400;color:var(--muted);font-size:.82em;margin-top:2px;direction:ltr;text-align:left}
+  h1 .en{font-size:17px;margin-top:8px;font-weight:500}
+  .opt input:checked + span .en,button.go .en{color:inherit;opacity:.8}
+  .done,.done h2,.done p{text-align:center} .done .en{text-align:center}
+  .chip .ar,.chip .en{display:inline;text-align:inherit;color:inherit;font-size:inherit}
+  button.go{text-align:center} button.go .en{text-align:center}
+  .opt .en{font-size:.85em}
   .hp{position:absolute;top:0;left:0;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none}
   html,body{overflow-x:hidden}
   .done{text-align:center;padding:60px 0;display:none}
@@ -69,48 +75,47 @@
 <body>
 <div class="wrap">
   <header>
-    <img src="logo.svg" alt="sustecamp.ai" />
-    <button class="lang" id="lang" type="button">English</button>
+    <a class="brand" href="https://sustecamp.ai/" aria-label="sustecamp.ai"><img src="logo.svg" alt="sustecamp.ai" /></a>
   </header>
 
   <main id="formView">
-    <h1 data-ar="كن من أوائل من يجرّبون الطاقة المتنقلة" data-en="Be among the first to try portable power"></h1>
-    <p class="lead" data-ar="أنظمة بطاريات متنقلة تعمل بالطاقة الشمسية للإيجار في الإمارات. سجّل بياناتك وسنتواصل معك." data-en="Solar-charged portable power systems for rent across the UAE. Leave your details and we'll get in touch."></p>
+    <h1><span class="ar" lang="ar" dir="rtl">كن من أوائل من يجرّبون الطاقة المتنقلة</span><span class="en" lang="en" dir="ltr">Be among the first to try portable power</span></h1>
+    <p class="lead"><span class="ar" lang="ar" dir="rtl">أنظمة بطاريات متنقلة تعمل بالطاقة الشمسية للإيجار في الإمارات. سجّل بياناتك وسنتواصل معك.</span><span class="en" lang="en" dir="ltr">Solar-charged portable power systems for rent across the UAE. Leave your details and we'll get in touch.</span></p>
 
     <form id="f" novalidate>
       <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" />
-      <label class="f"><span data-ar="الاسم" data-en="Name"></span>
+      <label class="f"><span><span class="ar" lang="ar" dir="rtl">الاسم</span><span class="en" lang="en" dir="ltr">Name</span></span>
         <input type="text" name="name" autocomplete="name" required />
       </label>
-      <label class="f"><span data-ar="رقم الهاتف" data-en="Phone number"></span>
+      <label class="f"><span><span class="ar" lang="ar" dir="rtl">رقم الهاتف</span><span class="en" lang="en" dir="ltr">Phone number</span></span>
         <input type="tel" name="phone" autocomplete="tel" inputmode="tel" required />
       </label>
-      <label class="f"><span data-ar="البريد الإلكتروني" data-en="Email"></span>
+      <label class="f"><span><span class="ar" lang="ar" dir="rtl">البريد الإلكتروني</span><span class="en" lang="en" dir="ltr">Email</span></span>
         <input type="email" name="email" autocomplete="email" required />
       </label>
 
       <fieldset>
-        <legend data-ar="هل تهتم بأنظمة طاقة متنقلة للإيجار، وتكون من أوائل من يجرّبونها مجاناً أو بخصم 50%؟" data-en="Are you interested in portable power systems for rent, and being among the first to try them free or at 50% off?"></legend>
-        <label class="opt"><input type="radio" name="interest" value="Yes" /><span data-ar="نعم، مهتم" data-en="Yes, I'm interested"></span></label>
-        <label class="opt"><input type="radio" name="interest" value="Maybe" /><span data-ar="ربما، أحتاج تفاصيل أكثر" data-en="Maybe, I need more details"></span></label>
-        <label class="opt"><input type="radio" name="interest" value="No" /><span data-ar="لا، شكراً" data-en="No, thanks"></span></label>
+        <legend><span class="ar" lang="ar" dir="rtl">هل تهتم بأنظمة طاقة متنقلة للإيجار، وتكون من أوائل من يجرّبونها مجاناً أو بخصم 50%؟</span><span class="en" lang="en" dir="ltr">Are you interested in portable power systems for rent, and being among the first to try them free or at 50% off?</span></legend>
+        <label class="opt"><input type="radio" name="interest" value="Yes" /><span><span class="ar" lang="ar" dir="rtl">نعم، مهتم</span><span class="en" lang="en" dir="ltr">Yes, I'm interested</span></span></label>
+        <label class="opt"><input type="radio" name="interest" value="Maybe" /><span><span class="ar" lang="ar" dir="rtl">ربما، أحتاج تفاصيل أكثر</span><span class="en" lang="en" dir="ltr">Maybe, I need more details</span></span></label>
+        <label class="opt"><input type="radio" name="interest" value="No" /><span><span class="ar" lang="ar" dir="rtl">لا، شكراً</span><span class="en" lang="en" dir="ltr">No, thanks</span></span></label>
       </fieldset>
 
       <div class="err" id="err" role="alert"></div>
-      <button class="go" id="go" type="submit" data-ar="إرسال" data-en="Submit"></button>
+      <button class="go" id="go" type="submit"><span class="ar" lang="ar" dir="rtl">إرسال</span><span class="en" lang="en" dir="ltr">Submit</span></button>
     </form>
   </main>
 
   <section class="done" id="done">
     <div class="tick">✓</div>
-    <h2 data-ar="شكراً لك!" data-en="Thank you!"></h2>
-    <p data-ar="وصلنا طلبك وسنتواصل معك قريباً." data-en="We've received your details and will be in touch soon."></p>
+    <h2><span class="ar" lang="ar" dir="rtl">شكراً لك!</span><span class="en" lang="en" dir="ltr">Thank you!</span></h2>
+    <p><span class="ar" lang="ar" dir="rtl">وصلنا طلبك وسنتواصل معك قريباً.</span><span class="en" lang="en" dir="ltr">We've received your details and will be in touch soon.</span></p>
   </section>
 
   <footer>
     <div class="contact">
       <a class="chip" href="https://instagram.com/sustecamp.ai" target="_blank" rel="noopener">Instagram · @sustecamp.ai</a>
-      <a class="chip" href="tel:+971505749015"><span data-ar="اتصال" data-en="Call"></span> · <bdi dir="ltr">050 574 9015</bdi></a>
+      <a class="chip" href="tel:+971505749015"><span class="ar" lang="ar" dir="rtl">اتصال</span> / <span class="en" lang="en" dir="ltr">Call</span> · <bdi dir="ltr">050 574 9015</bdi></a>
       <a class="chip" href="https://wa.me/971505749015" target="_blank" rel="noopener">WhatsApp · <bdi dir="ltr">050 574 9015</bdi></a>
     </div>
     <div class="site"><a href="https://sustecamp.ai/en/">sustecamp.ai</a></div>
@@ -120,37 +125,28 @@
 <script>
 (function(){
   var ENDPOINT = "https://formsubmit.co/ajax/khaledalazbe@gmail.com";
-  var lang = "ar";
-  var msgs = {
-    ar:{req:"الرجاء تعبئة الاسم والهاتف والإيميل واختيار إجابة.",mail:"الإيميل غير صحيح.",fail:"تعذّر الإرسال، حاول مرة ثانية.",btn:"إرسال",wait:"جاري الإرسال..."},
-    en:{req:"Please fill in name, phone, email and choose an answer.",mail:"Email looks invalid.",fail:"Couldn't send, please try again.",btn:"Submit",wait:"Sending..."}
+  var M = {
+    req:"الرجاء تعبئة الاسم والهاتف والإيميل واختيار إجابة. / Please fill in name, phone, email and choose an answer.",
+    mail:"الإيميل غير صحيح. / Email looks invalid.",
+    fail:"تعذّر الإرسال، حاول مرة ثانية. / Couldn't send, please try again.",
+    btn:'<span class="ar" lang="ar" dir="rtl">إرسال</span><span class="en" lang="en" dir="ltr">Submit</span>',
+    wait:'<span class="ar" lang="ar" dir="rtl">جاري الإرسال...</span><span class="en" lang="en" dir="ltr">Sending...</span>'
   };
-  function apply(){
-    document.documentElement.lang = lang;
-    document.documentElement.dir = lang==="ar" ? "rtl" : "ltr";
-    document.querySelectorAll("[data-ar]").forEach(function(el){ el.textContent = el.getAttribute("data-"+lang); });
-    document.getElementById("lang").textContent = lang==="ar" ? "English" : "العربية";
-  }
-  document.getElementById("lang").addEventListener("click", function(){ lang = lang==="ar" ? "en" : "ar"; apply(); });
-  apply();
-
   var form = document.getElementById("f"), err = document.getElementById("err"), go = document.getElementById("go");
   form.addEventListener("submit", function(e){
     e.preventDefault(); err.textContent = "";
     var d = new FormData(form);
     if(d.get("_honey")) return;
     var name=(d.get("name")||"").trim(), phone=(d.get("phone")||"").trim(), email=(d.get("email")||"").trim(), interest=d.get("interest");
-    if(!name||!phone||!email||!interest){ err.textContent = msgs[lang].req; return; }
-    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ err.textContent = msgs[lang].mail; return; }
-    go.disabled = true; go.textContent = msgs[lang].wait;
-    var body = {
-      name:name, phone:phone, email:email, interest:interest, language:lang,
-      _subject:"sustecamp.ai early access — "+name, _template:"table", _captcha:"false"
-    };
+    if(!name||!phone||!email||!interest){ err.textContent = M.req; return; }
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ err.textContent = M.mail; return; }
+    go.disabled = true; go.innerHTML = M.wait;
+    var body = { name:name, phone:phone, email:email, interest:interest,
+      _subject:"sustecamp.ai early access — "+name, _template:"table", _captcha:"false" };
     fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(body)})
       .then(function(r){ if(!r.ok) throw new Error("http "+r.status); return r.json(); })
       .then(function(){ document.getElementById("formView").style.display="none"; document.getElementById("done").style.display="block"; window.scrollTo(0,0); })
-      .catch(function(){ err.textContent = msgs[lang].fail; go.disabled=false; go.textContent=msgs[lang].btn; });
+      .catch(function(){ err.textContent = M.fail; go.disabled=false; go.innerHTML = M.btn; });
   });
 })();
 </script>
